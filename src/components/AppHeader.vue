@@ -15,7 +15,7 @@
           <div class="flex h-full shrink-0 items-center">
             <img class="h-full py-3 w-auto" src="../../public/logo.png" alt="Your Company" />
           </div>
-          <div class=" flex-grow sm:ml-6">
+          <div class=" flex-grow sm:ml-6 hidden md:block">
             <div class="flex justify-end space-x-4">
               <a v-for="item in navigation"
                  :key="item.name"

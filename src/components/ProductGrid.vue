@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">Products</h2>
       <!-- Filters -->
-      <div class="mb-6 flex flex-wrap items-center gap-4">
+      <div class="mb-6 flex flex-wrap items-center gap-4 d-grid-md grid-columns-2">
         <Listbox as="div" v-model="selectedCategory">
           <div class="select-wrapper relative">
             <ListboxButton class="flex-1 w-full border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm">
@@ -134,7 +134,7 @@
           v-model="searchQuery"
           type="text"
           placeholder="Search products..."
-          class="flex-1 border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm"
+          class="flex-1 border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm wide"
         />
       </div>
 
@@ -371,5 +371,23 @@ export default {
   }
   .select-wrapper .icon{
     top: 12px;
+  }
+
+  @media (max-width: 991px) {
+    .select-wrapper{
+      width: 100%;
+    }
+    .select-wrapper .icon{
+      top: 9px;
+    }
+    .d-grid-md{
+      display: grid;
+    }
+    .grid-columns-2{
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid-columns-2 .wide{
+      grid-column: span 2;
+    }
   }
 </style>
