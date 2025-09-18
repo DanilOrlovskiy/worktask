@@ -10,49 +10,49 @@
               <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6">
                 <span class="block truncate capitalize">{{ selectedCategory }}</span>
               </span>
-              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-400 absolute sm:size-4" aria-hidden="true" />
+              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-900 absolute sm:size-4" aria-hidden="true" />
             </ListboxButton>
             <transition leave-active-class="transition ease-in duration-100" leave-from-class="" leave-to-class="opacity-0">
               <ListboxOptions class="absolute z-10 mt-1 max-h-56 w-full overflow-auto border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm sm:text-sm">
                 <ListboxOption as="template" :value="'All Categories'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">All Categories</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">All Categories</span>
                     </div>
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'audio'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Audio</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Audio</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'computers'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Computers</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Computers</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'gadgets'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Gadgets</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Gadgets</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
@@ -67,60 +67,61 @@
               <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6">
                 <span class="block truncate capitalize">{{ sortBy }}</span>
               </span>
-              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-400 absolute sm:size-4" aria-hidden="true" />
+              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-900 absolute sm:size-4" aria-hidden="true" />
             </ListboxButton>
             <transition leave-active-class="transition ease-in duration-100" leave-from-class="" leave-to-class="opacity-0">
               <ListboxOptions class="absolute z-10 mt-1 max-h-56 w-full overflow-auto border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm sm:text-sm">
                 <ListboxOption as="template" :value="'Sort By'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Sort By</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Sort By</span>
                     </div>
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'Price: High to Low'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Price: High to Low</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'Price: Low to High'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Price: Low to High</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Price: Low to High</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
-                    <CheckIcon class="size-5" aria-hidden="true" />
-                  </span>
-                  </li>
-                </ListboxOption>
-                <ListboxOption as="template" :value="'Price: Low to High'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
-                    <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Price: Low to High</span>
-                    </div>
-
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'Name: A-Z'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Name: A-Z</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Name: A-Z</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-600', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
                 </ListboxOption>
                 <ListboxOption as="template" :value="'Name: Z-A'" v-slot="{ active, selected }">
-                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-gray-600', 'rounded-xl relative cursor-default py-2 pr-9 pl-3 select-none']">
                     <div class="flex items-center">
-                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Name: Z-A</span>
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">Name: Z-A</span>
                     </div>
 
-                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-2']">
                     <CheckIcon class="size-5" aria-hidden="true" />
                   </span>
                   </li>
@@ -146,7 +147,7 @@
           <img
               :src="product.image"
               :alt="product.name"
-              class="w-full h-56 object-cover"
+              class="w-full h-56 object-contain"
           />
           <div class="flex flex-col flex-grow pt-4">
             <h3 class="text-lg font-semibold text-gray-900">{{ product.name }}</h3>
@@ -172,10 +173,10 @@
 </template>
 
 <script>
-import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import { CheckIcon } from '@heroicons/vue/20/solid'
-import { reactive, ref, computed, watch } from 'vue'
+import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue';
+import { ChevronDownIcon } from '@heroicons/vue/20/solid';
+import { CheckIcon } from '@heroicons/vue/20/solid';
+import { reactive, ref, computed, watch } from 'vue';
 import Pagination from "./Pagination.vue";
 
 export default {
@@ -183,22 +184,111 @@ export default {
   components: {Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, Pagination, ChevronDownIcon, CheckIcon},
   setup(){
     const products = reactive([
-      { id: 1, name: 'Wireless Headphones', description: 'Noise-cancelling over-ear headphones', price: 99.99, image: 'https://via.placeholder.com/300x200?text=Headphones' },
-      { id: 2, name: 'Smart Watch', description: 'Track your activity and notifications', price: 149.99, image: 'https://via.placeholder.com/300x200?text=Smart+Watch' },
-      { id: 3, name: 'Bluetooth Speaker', description: 'Portable speaker with deep bass', price: 59.99, image: 'https://via.placeholder.com/300x200?text=Speaker' },
-      { id: 4, name: 'Gaming Mouse', description: 'High precision RGB mouse', price: 39.99, image: 'https://via.placeholder.com/300x200?text=Gaming+Mouse' },
-      { id: 5, name: 'Mechanical Keyboard', description: 'RGB backlit mechanical keyboard', price: 79.99, image: 'https://via.placeholder.com/300x200?text=Keyboard' },
-      { id: 6, name: 'Laptop Stand', description: 'Ergonomic aluminum laptop stand', price: 29.99, image: 'https://via.placeholder.com/300x200?text=Laptop+Stand' },
-      { id: 7, name: 'HD Webcam', description: '1080p USB webcam for video calls', price: 49.99, image: 'https://via.placeholder.com/300x200?text=Webcam' },
-      { id: 8, name: 'External SSD', description: 'Fast portable 1TB SSD', price: 129.99, image: 'https://via.placeholder.com/300x200?text=External+SSD' },
-      { id: 9, name: 'Wireless Charger', description: 'Qi-certified fast charger', price: 19.99, image: 'https://via.placeholder.com/300x200?text=Wireless+Charger' },
-      { id: 10, name: 'Action Camera', description: '4K waterproof action camera', price: 199.99, image: 'https://via.placeholder.com/300x200?text=Action+Camera' },
-      { id: 11, name: 'Fitness Tracker', description: 'Track steps and sleep patterns', price: 49.99, image: 'https://via.placeholder.com/300x200?text=Fitness+Tracker' },
-      { id: 12, name: 'Drone', description: 'Quadcopter with HD camera', price: 299.99, image: 'https://via.placeholder.com/300x200?text=Drone' },
-      { id: 13, name: 'Smartphone Gimbal', description: 'Stabilizer for smooth videos', price: 89.99, image: 'https://via.placeholder.com/300x200?text=Gimbal' },
-      { id: 14, name: 'Portable Projector', description: 'Mini projector for movies', price: 159.99, image: 'https://via.placeholder.com/300x200?text=Projector' },
-      { id: 15, name: 'Noise Cancelling Earbuds', description: 'True wireless earbuds', price: 79.99, image: 'https://via.placeholder.com/300x200?text=Earbuds' },
-      { id: 16, name: 'Smart Light Bulb', description: 'WiFi-controlled RGB bulb', price: 24.99, image: 'https://via.placeholder.com/300x200?text=Smart+Bulb' }
+      {
+        id: 1,
+        name: 'ASUS ROG Cetra True Wireless Earbuds',
+        description: 'Low-latency TWS for gaming with ANC and dual-mode connectivity',
+        price: 139.99,
+        image: '../public/ASUSROGCetraTrueWirelessEarbuds.jpg'
+      },
+      {
+        id: 2,
+        name: 'Logitech G Pro X Superlight Wireless Mouse',
+        description: 'Ultra-light wireless esports mouse with HERO 25K sensor',
+        price: 149.99,
+        image: '../public/LogitechGProXSuperlight.jpg'
+      },
+      {
+        id: 3,
+        name: 'Razer DeathAdder V4 Pro',
+        description: 'High-precision wireless mouse with 45K DPI and optical switches',
+        price: 169.99,
+        image: '../public/DeathAdder.webp'
+      },
+      {
+        id: 4,
+        name: 'ASUS ROG Cetra SpeedNova (White)',
+        description: 'TWS earbuds with 2.4GHz/BT dual wireless and adaptive ANC',
+        price: 179.99,
+        image: '../public/ASUSROGCetraSpeedNova.jpg'
+      },
+      {
+        id: 5,
+        name: 'SteelSeries Arctis Pro Wireless',
+        description: 'Premium dual-wireless gaming headset with base station',
+        price: 249.99,
+        image: '../public/SteelSeriesArctisPro.webp'
+      },
+      {
+        id: 6,
+        name: 'Razer BlackShark V3 Pro',
+        description: 'Wireless esports headset with clear mic and long battery life',
+        price: 199.99,
+        image: '../public/RazerBlackSharkV3Pro.png'
+      },
+      {
+        id: 7,
+        name: 'Logitech G733 LIGHTSPEED',
+        description: 'Lightweight wireless headset with surround sound',
+        price: 159.99,
+        image: '../public/LogitechG733.webp'
+      },
+      {
+        id: 8,
+        name: 'Meta Quest 2 (64GB)',
+        description: 'Standalone VR headset with up to 120Hz display support',
+        price: 299.00,
+        image: '../public/MetaQuest2.jpg'
+      },
+      {
+        id: 9,
+        name: 'MSI Claw A8 Handheld',
+        description: '8-inch 120Hz Windows handheld for AAA gaming on the go',
+        price: 799.99,
+        image: '../public/MSIClawA8Handheld.png'
+      },
+      {
+        id: 10,
+        name: 'Razer Basilisk Mobile',
+        description: 'Lightweight wireless mouse made for portability',
+        price: 89.99,
+        image: '../public/RazerBasilisk.webp'
+      },
+      {
+        id: 11,
+        name: 'Xbox Elite Wireless Controller Series 2',
+        description: 'Pro-grade Xbox/PC controller with adjustable triggers and paddles',
+        price: 179.99,
+        image: '../public/XboxElite.webp'
+      },
+      {
+        id: 12,
+        name: 'Sony DualSense Wireless Controller (PS5)',
+        description: 'Haptic feedback and adaptive triggers for immersive gameplay',
+        price: 69.99,
+        image: '../public/DualSenseWirelessController.jpg'
+      },
+      {
+        id: 13,
+        name: 'HyperX QuadCast S USB Microphone',
+        description: 'RGB condenser mic with built-in pop filter for streaming',
+        price: 129.99,
+        image: '../public/HyperXQuadCastS.webp'
+      },
+      {
+        id: 14,
+        name: 'Secretlab TITAN Evo 2022 Gaming Chair',
+        description: 'Ergonomic gaming chair with adjustable lumbar support',
+        price: 549.00,
+        image: '../public/SecretlabTitanevo2022.webp'
+      },
+      {
+        id: 15,
+        name: 'Keychron K6 Pro Mechanical Keyboard',
+        description: 'Hot-swappable 65% wireless mechanical keyboard with RGB',
+        price: 89.00,
+        image: '../public/KeychronK6Pro.webp'
+      }
     ]);
     const currentPage = ref(1);
     const perPage = ref(8);

@@ -1,6 +1,6 @@
 <template>
   <Disclosure as="nav" class="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-2 py-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
@@ -11,13 +11,20 @@
             <XMarkIcon v-else class="block size-6" aria-hidden="true" />
           </DisclosureButton>
         </div>
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=gray&shade=500" alt="Your Company" />
+        <div class="flex flex-1 items-center align-center justify-center h-full sm:justify-start">
+          <div class="flex h-full shrink-0 items-center">
+            <img class="h-full py-3 w-auto" src="../../public/logo.png" alt="Your Company" />
           </div>
-          <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+          <div class=" flex-grow sm:ml-6">
+            <div class="flex justify-end space-x-4">
+              <a v-for="item in navigation"
+                 :key="item.name"
+                 :href="item.href"
+                 :class="[item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
+                 :aria-current="item.current ? 'page' : undefined"
+              >
+                {{ item.name }}
+              </a>
             </div>
           </div>
         </div>
@@ -33,7 +40,9 @@
             <MenuButton class="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500">
               <span class="absolute -inset-1.5" />
               <span class="sr-only">Open user menu</span>
-              <img class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+              <svg class="size-6 user-circle-icon text-gray-400 hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              </svg>
             </MenuButton>
 
             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform scale-100" leave-to-class="transform opacity-0 scale-95">
@@ -65,6 +74,7 @@
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { UserCircleIcon } from '@heroicons/vue/20/solid';
 import {reactive, ref} from "vue";
 
 export default {
@@ -79,14 +89,15 @@ export default {
     MenuItems,
     Bars3Icon,
     BellIcon,
-    XMarkIcon
+    XMarkIcon,
+    UserCircleIcon
   },
   setup(){
     const navigation = reactive([
-      { name: 'Dashboard', href: '#', current: true },
-      { name: 'Team', href: '#', current: false },
-      { name: 'Projects', href: '#', current: false },
-      { name: 'Calendar', href: '#', current: false },
+      { name: 'Home', href: '#', current: false },
+      { name: 'Products', href: '#', current: true },
+      { name: 'About us', href: '#', current: false },
+      { name: 'Contacts', href: '#', current: false },
     ]);
     const isOpen = ref(false);
     const active = ref(false);
@@ -99,3 +110,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+ .user-circle-icon path{
+
+ }
+</style>
