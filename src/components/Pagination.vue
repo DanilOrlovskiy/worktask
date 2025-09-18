@@ -8,7 +8,7 @@
     </div>
     <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
       <div>
-        <p class="text-sm text-gray-300">
+        <p class="text-sm text-gray-500">
           Showing
           {{ ' ' }}
           <span class="font-medium">{{pageData.from}}</span>
@@ -25,9 +25,9 @@
         </p>
       </div>
       <div>
-        <nav class="isolate inline-flex -space-x-px rounded-md" aria-label="Pagination">
+        <nav class="pagination-wrapper isolate inline-flex align-middle -space-x-px rounded-md" aria-label="Pagination">
           <a @click="changePage(currentPage - 1)"
-             class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0">
+             class="border-none relative inline-flex items-center px-2 py-2 rounded-md text-gray-900 hover:bg-gray-200 focus:z-20 focus:outline-offset-0">
             <span class="sr-only">Previous</span>
             <ChevronLeftIcon class="size-5" aria-hidden="true"/>
           </a>
@@ -36,13 +36,13 @@
              @click="changePage(page)"
              aria-current="page"
              :class="[
-                'px-3 py-1 rounded-md border border-gray-300 hover:bg-gray-200',
-                currentPage === page ? 'bg-indigo-600 text-white border-indigo-600' : 'text-gray-600'
+                'px-2 py-2 rounded-md hover:bg-gray-200',
+                currentPage === page ? ' text-gray-900' : 'text-gray-500'
               ]" >
             {{page}}
           </a>
           <a @click="changePage(currentPage + 1)"
-             class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 inset-ring inset-ring-gray-700 hover:bg-white/5 focus:z-20 focus:outline-offset-0">
+             class="relative inline-flex items-center px-2 py-2 rounded-md text-gray-900 hover:bg-gray-200 focus:z-20 focus:outline-offset-0">
             <span class="sr-only">Next</span>
             <ChevronRightIcon class="size-5" aria-hidden="true"/>
           </a>
@@ -115,5 +115,12 @@ export default {
 </script>
 
 <style scoped>
-
+  .pagination-wrapper a{
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 </style>

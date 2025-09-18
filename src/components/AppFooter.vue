@@ -5,7 +5,7 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <!-- Логотип -->
         <div class="flex items-center gap-2">
-          <img src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+          <img src="https://tailwindui.com/img/logos/mark.svg?color=gray&shade=500"
                alt="Logo"
                class="h-8 w-auto" />
           <span class="text-white font-semibold text-lg">MyCompany</span>

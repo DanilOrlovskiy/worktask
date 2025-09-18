@@ -1,28 +1,139 @@
 <template>
-  <section class="py-12 relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+  <section class="py-12 relative bg-gray-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Our Products</h2>
-
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Products</h2>
       <!-- Filters -->
       <div class="mb-6 flex flex-wrap items-center gap-4">
-        <select v-model="selectedCategory" class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="">All Categories</option>
-          <option value="audio">Audio</option>
-          <option value="computers">Computers</option>
-          <option value="gadgets">Gadgets</option>
-        </select>
-        <select v-model="sortBy" class="border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="">Sort By</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="name-asc">Name: A-Z</option>
-          <option value="name-desc">Name: Z-A</option>
-        </select>
+        <Listbox as="div" v-model="selectedCategory">
+          <div class="select-wrapper relative">
+            <ListboxButton class="flex-1 w-full border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm">
+              <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6">
+                <span class="block truncate capitalize">{{ selectedCategory }}</span>
+              </span>
+              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-400 absolute sm:size-4" aria-hidden="true" />
+            </ListboxButton>
+            <transition leave-active-class="transition ease-in duration-100" leave-from-class="" leave-to-class="opacity-0">
+              <ListboxOptions class="absolute z-10 mt-1 max-h-56 w-full overflow-auto border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm sm:text-sm">
+                <ListboxOption as="template" :value="'All Categories'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">All Categories</span>
+                    </div>
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'audio'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Audio</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'computers'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Computers</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'gadgets'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Gadgets</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </transition>
+          </div>
+        </Listbox>
+        <Listbox as="div" v-model="sortBy">
+          <div class="select-wrapper relative">
+            <ListboxButton class="flex-1 w-full border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm">
+              <span class="col-start-1 row-start-1 flex items-center gap-3 pr-6">
+                <span class="block truncate capitalize">{{ sortBy }}</span>
+              </span>
+              <ChevronDownIcon class="icon col-start-1 row-start-1 size-5 self-center justify-self-end text-gray-400 absolute sm:size-4" aria-hidden="true" />
+            </ListboxButton>
+            <transition leave-active-class="transition ease-in duration-100" leave-from-class="" leave-to-class="opacity-0">
+              <ListboxOptions class="absolute z-10 mt-1 max-h-56 w-full overflow-auto border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm sm:text-sm">
+                <ListboxOption as="template" :value="'Sort By'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Sort By</span>
+                    </div>
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'Price: Low to High'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Price: Low to High</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'Price: Low to High'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Price: Low to High</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'Name: A-Z'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Name: A-Z</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+                <ListboxOption as="template" :value="'Name: Z-A'" v-slot="{ active, selected }">
+                  <li :class="[active ? 'bg-gray-500 text-white outline-hidden' : 'text-white', 'relative cursor-default py-2 pr-9 pl-3 select-none']">
+                    <div class="flex items-center">
+                      <span :class="[selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate']">Name: Z-A</span>
+                    </div>
+
+                    <span v-if="selected" :class="[active ? 'text-white' : 'text-gray-400', 'absolute inset-y-0 right-0 flex items-center pr-4']">
+                    <CheckIcon class="size-5" aria-hidden="true" />
+                  </span>
+                  </li>
+                </ListboxOption>
+              </ListboxOptions>
+            </transition>
+          </div>
+        </Listbox>
         <input
           v-model="searchQuery"
           type="text"
           placeholder="Search products..."
-          class="flex-1 border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+          class="flex-1 border border-gray-300 rounded-xl px-3 py-2 text-sm bg-white text-gray-700 shadow-sm"
         />
       </div>
 
@@ -30,7 +141,7 @@
         <div
             v-for="product in paginatedProducts"
             :key="product.id"
-            class="flex flex-col flex-grow rounded-3xl rounded-t-3xl bg-white/2.5 p-6 ring-1 ring-white/10 sm:mx-8 sm:p-6 lg:mx-0 lg:rounded-bl-3xl"
+            class="flex flex-col flex-grow rounded-2xl bg-white shadow-sm p-6 ring-1 ring-gray-200"
         >
           <img
               :src="product.image"
@@ -40,12 +151,12 @@
           <div class="flex flex-col flex-grow pt-4">
             <h3 class="text-lg font-semibold text-gray-900">{{ product.name }}</h3>
             <p class="flex-grow mt-2 text-gray-600 text-sm">{{ product.description }}</p>
-            <div class="mt-4 flex items-center justify-between">
-              <span class="text-indigo-600 font-bold">${{ product.price }}</span>
+            <div class="mt-4 flex flex-col">
+              <span class="text-gray-900 font-bold mb-2">${{ product.price }}</span>
               <button
-                  class="bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 transition"
+                  class="bg-gray-900 text-white px-7 py-2 rounded-md hover:bg-gray-700 transition"
               >
-                Buy
+                Add to Cart
               </button>
             </div>
           </div>
@@ -61,13 +172,16 @@
 </template>
 
 <script>
+import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
+import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+import { CheckIcon } from '@heroicons/vue/20/solid'
 import { reactive, ref, computed, watch } from 'vue'
 import Pagination from "./Pagination.vue";
 
 export default {
   name: "ProductGrid",
-  components: {Pagination},
-  setup(_, { emit }){
+  components: {Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions, Pagination, ChevronDownIcon, CheckIcon},
+  setup(){
     const products = reactive([
       { id: 1, name: 'Wireless Headphones', description: 'Noise-cancelling over-ear headphones', price: 99.99, image: 'https://via.placeholder.com/300x200?text=Headphones' },
       { id: 2, name: 'Smart Watch', description: 'Track your activity and notifications', price: 149.99, image: 'https://via.placeholder.com/300x200?text=Smart+Watch' },
@@ -86,17 +200,16 @@ export default {
       { id: 15, name: 'Noise Cancelling Earbuds', description: 'True wireless earbuds', price: 79.99, image: 'https://via.placeholder.com/300x200?text=Earbuds' },
       { id: 16, name: 'Smart Light Bulb', description: 'WiFi-controlled RGB bulb', price: 24.99, image: 'https://via.placeholder.com/300x200?text=Smart+Bulb' }
     ]);
-
     const currentPage = ref(1);
     const perPage = ref(8);
-    const selectedCategory = ref('');
-    const sortBy = ref('');
+    const selectedCategory = ref('All Categories');
+    const sortBy = ref('Sort By');
     const searchQuery = ref('');
 
     const filteredAndSortedProducts = computed(() => {
       let filtered = products;
 
-      if (selectedCategory.value) {
+      if (selectedCategory.value && selectedCategory.value !== 'All Categories') {
         const categoryMap = {
           audio: ['Wireless Headphones', 'Bluetooth Speaker', 'Noise Cancelling Earbuds'],
           computers: ['Gaming Mouse', 'Mechanical Keyboard', 'Laptop Stand', 'HD Webcam', 'External SSD', 'Wireless Charger', 'Action Camera', 'Fitness Tracker', 'Drone', 'Smartphone Gimbal', 'Portable Projector', 'Smart Light Bulb', 'Smart Watch'],
@@ -114,13 +227,13 @@ export default {
       }
 
       if (sortBy.value) {
-        if (sortBy.value === 'price-asc') {
+        if (sortBy.value === 'Price: Low to High') {
           filtered = [...filtered].sort((a, b) => a.price - b.price);
-        } else if (sortBy.value === 'price-desc') {
+        } else if (sortBy.value === 'Price: High to Low') {
           filtered = [...filtered].sort((a, b) => b.price - a.price);
-        } else if (sortBy.value === 'name-asc') {
+        } else if (sortBy.value === 'Name: A-Z') {
           filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
-        } else if (sortBy.value === 'name-desc') {
+        } else if (sortBy.value === 'Name: Z-A') {
           filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name));
         }
       }
@@ -163,5 +276,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .select-wrapper{
+    width: 200px;
+  }
+  .select-wrapper .icon{
+    top: 12px;
+  }
 </style>
